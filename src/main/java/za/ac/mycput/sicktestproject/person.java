@@ -7,7 +7,7 @@ package za.ac.mycput.sicktestproject;
 /**
  *
  * @author Farrel Joris Mbazaboua Izango 
-                * 219195897
+              219195897
  */
 public class person {
 
@@ -41,7 +41,18 @@ public class person {
         return "person{" + "age=" + age + ", name=" + name + '}';
     }
     
-       
+       public static void main(String[] args) {
+           person P1 = new person(22,"John");
+           person P2 = new person(24,"Farha");
+           String expected = "*******Different person*******";
+             if(P1.equals(P2)){
+               System.out.println("Same person");
+                }else if(!P1.equals(P2)){
+               System.err.println(expected);
+                }
+         
+    
+        }
       
           
     }

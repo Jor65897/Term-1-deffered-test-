@@ -1,30 +1,78 @@
 
-import java.util.logging.Logger;
-import za.ac.mycput.sicktestproject.person;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Timeout;
+import za.ac.mycput.sicktestproject.person;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  *
- * @author user
+ * @author Farrel Joris Mbazaboua Izango 
+ *              219195897
  */
-public class testperson {
 
-    public static void main(String[] args) {
-        person P3 = new person(23,"G"); 
-           
-           person P1 = new person(22,"John");
-           person P2 = new person(24,"Farha");
-           
-             if(P1.equals(P2)){
-               System.out.println("Same person");
-                }else if(!P1.equals(P2)){
-               System.err.println("*******Different person*******");
+public class testperson {
+    private person P1;
+    private person P2;
+   
+    
+    public testperson() {
+    }
+
+    @BeforeEach
+    public void setUp() 
+    {
+        this.P1 = new person(18,"JP");
+        this.P2 = new person(22,"John");
+        
+          
     }
     
+   
+    // Equality Test
+    @Test
+    public void testEquality () {
+        assertEquals(P1,P2,"This is an equality test" );;
     }
+     // Identity Test
+    @Test
+    public void testIdentity (){
+          
+        assertSame(P1,P2,"This is the identity test");
+    }
+    
+     // Failing test
+    @Test
+    public void testFailing () {
+       assertEquals(P1,P2); 
+       fail(" ***This is the failing test*** ");
+    }
+   
+    // Timeout test 
+    @Timeout (5)
+    @Test
+    public void testTimeout () {
+        for (int i=0; i<10; i++) {
+         System.out.println(i);
+     }
+
+    }
+ 
+    // Disabling test
+    @Disabled
+    @org.junit.jupiter.api.Test
+    public void testDisabled () {  
+     assertEquals(P1, P2);
+    }
+    
+    
 }
