@@ -42,22 +42,12 @@ public class person {
     }
     
        
-      public static void main(String[] arg){
-           
-          
-           person P1 = new person(22,"John");
-           person P2 = new person(24,"Farha");
-           
-             if(P1.equals(P2)){
-               System.out.println("Same person");
-                }else if(!P1.equals(P2)){
-               System.err.println("*******Different person*******");
-           }
+      
           
     }
            
            
        
-       }
+       
       
 
